@@ -1,0 +1,14 @@
+<form #search = "ngForm" (ngSubmit) = "onSubmit(search)"> 
+    <div class="row">
+      <div class="col-xs-6 col-md-4">
+        <div class="input-group">
+          <input type="text" class="form-control" required ngModel placeholder="Search" name="txtSearch" #txtSearch="ngModel"/>
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>

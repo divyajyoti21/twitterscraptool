@@ -1,0 +1,51 @@
+<div class="well bordernone">
+<div>User search</div>
+<br/>
+  <search-tab (searchdata)="onSubmit($event)"></search-tab>
+  <br/>
+  <div class="well tablewell">
+          <table class="table">
+              <thead>
+                  <tr>
+                    <th>Tweet</th>
+                    <th>Likes</th>
+                    <th>Replies</th>
+                    <th>Retweets</th>
+                    <th>Hashtags</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+              <tr *ngFor="let item of pagedItems">
+                <td style = "max-width: 300px;"  align="left">{{item.text | trimText}}</td>
+                <td align="left">{{item.likes | zeroSymbol}}</td>
+                <td align="left">{{item.replies | zeroSymbol}}</td>
+                <td align="left">{{item.retweets | zeroSymbol}}</td>
+                <td align="left">{{item.hashtags | hashtagLimit}}</td>
+                <td align="left">{{item.date | dateFormat}}</td>
+              </tr>
+            </tbody>
+            </table>
+
+
+        <!-- pager -->
+        <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+            <li [ngClass]="{disabled:pager.currentPage === 1}">
+                <a (click)="setPage(1)">First</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === 1}">
+                <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                <a (click)="setPage(page)">{{page}}</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a (click)="setPage(pager.currentPage + 1)">Next</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a (click)="setPage(pager.totalPages)">Last</a>
+            </li>
+        </ul>
+    </div>
+    <br/>
+</div>

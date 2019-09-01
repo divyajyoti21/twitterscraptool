@@ -1,0 +1,18 @@
+{
+    "/hash": {
+      "target": "http://am-twitter-scrape.herokuapp.com",
+      "secure": false,
+      "pathRewrite": {
+        "^/api": ""
+      },
+      "changeOrigin": true
+    },
+    "/users": {
+      "target": "http://am-twitter-scrape.herokuapp.com",
+      "secure": false,
+      "pathRewrite": {
+        "^/api": ""
+      },
+      "changeOrigin": true
+    }
+  }
